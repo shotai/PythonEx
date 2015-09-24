@@ -1,0 +1,2 @@
+# leetcodePython
+python version leetcode 
