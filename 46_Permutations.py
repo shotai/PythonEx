@@ -32,3 +32,20 @@ class Solution(object):
                     tmp_ret.append(seq[:i] + [n] + seq[i:])
             ret = tmp_ret
         return ret
+        
+    def permute_iter2(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if not nums:
+            return []
+        ret = [[]]
+        for n in nums:
+            tmp = []
+            l = len(ret[0])
+            for sq in ret:
+                for i in range(0, l+1):
+                    tmp.append(sq[:i]+[n]+sq[i:])
+            ret = tmp
+        return ret
