@@ -13,3 +13,14 @@ class Solution(object):
             elif nums[mid] < target:
                 l = mid + 1 
         return l
+        
+    def searchInsert2(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        for index,val in enumerate(nums):
+            if val>=target:
+                return index
+        return len(nums)
