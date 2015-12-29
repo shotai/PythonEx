@@ -6,12 +6,11 @@ class Solution(object):
         """
         if not nums:
             return 0
-        minv = maxv = res = nums[0]
-        for i in range(1, len(nums)):
-            a = minv*nums[i]
-            b = maxv*nums[i]
-            c = nums[i]
-            minv = min(a,b,c)
-            maxv = max(a,b,c)
-            res = maxv if maxv>res else res
+        mi = ma = res = nums[0]
+        for i in nums[1:]:
+            a = mi*i
+            b = ma*i
+            mi = min(a, b, i)
+            ma = max(a, b, i)
+            res = ma if ma>res else res
         return res
