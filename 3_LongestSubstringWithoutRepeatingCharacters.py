@@ -16,3 +16,19 @@ class Solution(object):
                 maxlen = i-start+1
             dict[v] = i
         return maxlen
+        
+    def lengthOfLongestSubstring2(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        start = 0
+        res = 0
+        dic = collections.defaultdict(int)
+        for i, v in enumerate(s):
+            print(dic[v])
+            if dic[v] != 0:
+                start = dic[v] if start<=dic[v] else start
+            res = max(res, i-start+1)
+            dic[v]=i+1
+        return res
