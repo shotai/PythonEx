@@ -1,0 +1,23 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def pathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: List[List[int]]
+        """
+        if not root:
+            return []
+        val, kids = root.val, (root.left, root.right)
+        if any(kids):
+            return [[val]+path for kid in kids for path in self.pathSum(kid, sum-val)]
+        return [[val]] if val==sum else []
+
+
+# https://leetcode.com/discuss/41197/short-python-solution
