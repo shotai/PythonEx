@@ -18,3 +18,20 @@ class Solution(object):
             dict[item].sort()
             res.append(dict[item])
         return res
+    
+    def groupAnagrams1(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        if not strs:
+            return []
+        res = []
+        strs.sort()
+        dic = collections.defaultdict(list)
+        for s in strs:
+            k = "".join(sorted(s))
+            dic[k].append(s)
+        for k, v in dic.items():
+            res.append(v)
+        return res
